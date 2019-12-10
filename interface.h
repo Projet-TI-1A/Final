@@ -1,7 +1,13 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
-void Fenetre(void);
-void Grand_cercle(void);
-void Position_ligne(int ,int);
-void Dessine_point(int , int);
+using namespace sf;
+using namespace std;
+
+void Grand_cercle(RenderWindow&);
+void Position_ligne(int ,int, RenderWindow&);
+void Dessine_point(int , int,RenderWindow&);
+
+
+
+#endif

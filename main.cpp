@@ -1,17 +1,22 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "INTERFACE_H"
+#include "interface.h"
+#include "toucher.h"
+#include <vector>
 
 using namespace std;
 using namespace sf;
 
+
 int main()
 {
-	int ligneX=400, ligneY=50, X, Y;
+	int ligneX=400, ligneY=50, taille=0, x, y; 
+	vector<point> tab_point;
 	
-	Fenetre();
-	Grand_cercle();
-	Position_ligne(ligneX, ligneY);
+	RenderWindow window(VideoMode(700,700), "SFML works!");
+	window.clear();
+	Grand_cercle(window);
+	Position_ligne(ligneX, ligneY,window);
 	
 	while (window.isOpen())
 	{
@@ -21,30 +26,30 @@ int main()
 			if (event.type == Event::Closed)
 				{window.close();}
 			
-			if (event.type == Event::MouseMoved)
-			{
-				Position_Curseur(&x, &y);
-				cout << "Coord Souris" << x << "," << y << "\n";
-			}
 			
 			if (event.type == Event::MouseButtonPressed)
 			{
-				if (event.mouseButton == Mouse::Left)
+				if ((Mouse::isButtonPressed(Mouse::Left)))
 				{
-					Position_Curseur(&x, &y);
-					Dessine_point(x, y);
+					Ajoute_point(tab_point, &taille, window);
+					cout << taille;
+					Position_Curseur(&x, &y, window);
+								
 				}
 			}
 		}
-
 	window.clear();
-	window.draw(shape);
-	window.draw(line);
-	window.draw(point);
+	Grand_cercle(window);
+	Position_ligne(ligneX, ligneY,window);
+	Dessine_point(x,y, window);
+	Dessine_plus_points(tab_point, taille, window);
+	
 	window.display();
 	}
 	
 	return 0;
 }
+
+/* Faire un mega tableau qui append les points qui ont été dessinés et les affiches a chaque fois */
 
 
