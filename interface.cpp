@@ -50,9 +50,8 @@ void Dessine_plus_points(vector<point> tab, int taille, RenderWindow& window)
 	for (int i=0; i<taille; i++)
 	{
 		Dessine_point(tab[i].x, tab[i].y, window);
-		cout << tab[i].x << " | " << tab[i].y << "\n";
 	}
-	cout << "\n";
+
 }
 
 
