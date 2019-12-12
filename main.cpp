@@ -13,7 +13,7 @@ int main()
 	int ligneX=400, ligneY=50, taille=0, x, y , Dessin = false;
 	vector<point> tab_point;
 	
-	RenderWindow window(VideoMode(700,700), "SFML works!");
+	RenderWindow window(VideoMode(480,320), "SFML works!",Style::Fullscreen);
 	window.clear();
 	Grand_cercle(window);
 	Position_ligne(ligneX, ligneY,window);
@@ -44,6 +44,14 @@ int main()
 					Dessin = false ;
 				}
 			}
+			
+			else if (event.type == Event::KeyPressed)
+			{
+				if (Keyboard::isKeyPressed(Keyboard::Q))
+				{
+					window.close();
+				}
+			}
 		}
 		
 		if (Dessin)
@@ -65,6 +73,7 @@ int main()
 		
 		window.clear();
 		Grand_cercle(window);
+		
 		Position_ligne(ligneX, ligneY,window);
 		Dessine_point(x,y, window);
 		Dessine_plus_points(tab_point, taille, window);
