@@ -43,6 +43,7 @@ int main()
 			
 			else if (event.type == Event::KeyReleased)
 			{
+				if (Event.Key.Code == Keyboard::Space)
 					Dessin = false ;
 			}
 			
