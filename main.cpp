@@ -3,7 +3,7 @@
 #include "interface.h"
 #include "toucher.h"
 #include <vector>
-
+#define R 5
 using namespace std;
 using namespace sf;
 
@@ -39,10 +39,7 @@ int main()
 			
 			else if (event.type == Event::KeyReleased)
 			{
-				if (Keyboard::isKeyReleased(Keyboard::Space))
-				{
 					Dessin = false ;
-				}
 			}
 			
 			else if (event.type == Event::KeyPressed)
@@ -75,8 +72,8 @@ int main()
 		Grand_cercle(window);
 		
 		Position_ligne(ligneX, ligneY,window);
-		Dessine_point(x,y, window);
-		Dessine_plus_points(tab_point, taille, window);
+		Dessine_point(x,y, window, R);
+		Dessine_plus_points(tab_point, taille, window, R);
 		window.display();
 	}
 	

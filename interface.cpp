@@ -34,9 +34,9 @@ void Position_ligne(int x, int y,RenderWindow& window)/*Permet de mettre la lign
 
 /********************************************************************************/
 
-void Dessine_point(int x, int y, RenderWindow& window)/*Dessine un point de taille 5px à la position (x,y)*/
+void Dessine_point(int x, int y, RenderWindow& window, int R)/*Dessine un point de taille 5px à la position (x,y)*/
 {
-	CircleShape point(5);
+	CircleShape point(R);
 	point.setFillColor(Color(200,150,246));
 	point.setPosition(x,y);
 	window.draw(point);
@@ -45,11 +45,11 @@ void Dessine_point(int x, int y, RenderWindow& window)/*Dessine un point de tail
 
 /********************************************************************************/
 
-void Dessine_plus_points(vector<point> tab, int taille, RenderWindow& window)
+void Dessine_plus_points(vector<point> tab, int taille, RenderWindow& window,int R)
 {
 	for (int i=0; i<taille; i++)
 	{
-		Dessine_point(tab[i].x, tab[i].y, window);
+		Dessine_point(tab[i].x, tab[i].y, window, R);
 	}
 
 }

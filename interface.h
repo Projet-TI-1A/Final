@@ -6,7 +6,7 @@ using namespace std;
 
 void Grand_cercle(RenderWindow&);
 void Position_ligne(int ,int, RenderWindow&);
-void Dessine_point(int , int,RenderWindow&);
+void Dessine_point(int , int,RenderWindow&, int );
 
 
 
