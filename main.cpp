@@ -29,17 +29,17 @@ int main()
 				{window.close();}
 			
 			
-			else if (event.type == Event::MouseButtonPressed)
+			else if (event.type == Event::KeyPressed)
 			{
-				if (event.mouseButton.button == Mouse::Left)
+				if (Keyboard::isKeyPressed(Keyboard::Space))
 				{
 					Dessin = true;
 				}
 			}
 			
-			else if (event.type == Event::MouseButtonReleased)
+			else if (event.type == Event::KeyReleased)
 			{
-				if (event.mouseButton.button == Mouse::Left)
+				if (Keyboard::isKeyReleased(Keyboard::Space))
 				{
 					Dessin = false ;
 				}
