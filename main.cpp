@@ -10,6 +10,10 @@ using namespace sf;
 
 int main()
 {
+	Clock clock; // démarre le chrono
+	Time elapsed1 = clock.getElapsedTime();
+	cout << elapsed1.asSeconds() << std::endl;
+	clock.restart();
 	int ligneX=400, ligneY=50, taille=0, x, y , Dessin = false;
 	vector<point> tab_point;
 	
@@ -76,7 +80,9 @@ int main()
 		Dessine_plus_points(tab_point, taille, window, R);
 		window.display();
 	}
-	
+	Time elapsed1 = clock.getElapsedTime();
+	cout << elapsed1.asSeconds() << std::endl;
+	clock.restart();
 	return 0;
 }
 
