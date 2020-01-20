@@ -1,9 +1,8 @@
 #include <iostream>
-/*#include "toucher.h"*/
-/*#include "zone.h"*/
+#include "toucher.h"
+#include "zone.h"
 
-int cercle(int i,int j,int a,int b,int r);
-int zone(int i,int j,int a,int b,int r, int e);
+
 
 int cercle(int i,int j,int a,int b,int r)
 {
@@ -17,6 +16,8 @@ return verif;
 }
 
 
+
+
 int zone(int i,int j,int a,int b,int r, int e)
 {
 int l=320,L=480;
@@ -25,13 +26,13 @@ int error=0;
 
 verif_cercle=cercle(i,j,a,b,r);
 
-if (i>=a+r-e and verif_cercle==1)
+if (i>=a+r-e && verif_cercle==1)
 	{
-		error=0;
+		error=1;
 	}
 else 
 	{
-		error=1;
+		error=0;
 	}
 return error;
 }
