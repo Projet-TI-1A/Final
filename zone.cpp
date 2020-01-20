@@ -26,7 +26,7 @@ int error=0;
 
 verif_cercle=cercle(i,j,a,b,r);
 
-if (i>=a+r-e && verif_cercle==1)
+if ((i>=a+r-e) && (verif_cercle==1))
 	{
 		error=1;
 	}
