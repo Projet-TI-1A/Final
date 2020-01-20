@@ -4,11 +4,11 @@
 using namespace std;
 using namespace sf;
 
-struct point
+typedef struct
 {
 	int x;
 	int y;
-};
+} point ;
 
 void Position_Curseur(int*, int* , RenderWindow&);
 void Ajoute_point(vector<point>,int*, RenderWindow&);

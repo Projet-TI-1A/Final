@@ -10,18 +10,25 @@ using namespace sf;
 
 int main()
 {
-	Clock clock; // démarre le chrono
-	Time elapsed1 = clock.getElapsedTime();
-	cout << elapsed1.asSeconds() << std::endl;
-	clock.restart();
-	int ligneX=400, ligneY=50, taille=0, x, y , Dessin = false;
-	vector<point> tab_point;
+	int ligneX=400, ligneY=20, taille=0, taille_erreur=0, x, y , Dessin = false;
+	vector<point> tab_point; 
+	vector<point> tab_erreur;
 	
 	RenderWindow window(VideoMode(480,320), "SFML works!",Style::Fullscreen);
 	window.clear();
+	sf::Texture texture;
+	if (!texture.loadFromFile("background_im22.jpg", sf::IntRect(0,0,480,320)))
+	{ /* Erreur*/ }
+	sf::Sprite sprite;
+	sprite.setTexture(texture);
+	sprite.setScale(sf::Vector2f(1.5f,1.5f));
+	
 	Grand_cercle(window);
 	Position_ligne(ligneX, ligneY,window);
 	
+	
+	
+
 	point p1;
 	
 	while (window.isOpen())
@@ -33,21 +40,23 @@ int main()
 				{window.close();}
 			
 			
-			else if (event.type == Event::KeyPressed)
+			if (event.type == Event::KeyPressed)
 			{
-				if (Keyboard::isKeyPressed(Keyboard::Space))
+				if (event.key.code == Keyboard::Space)
 				{
 					Dessin = true;
 				}
 			}
 			
-			else if (event.type == Event::KeyReleased)
+			
+			if (event.type == Event::KeyReleased)
 			{
-				if (Event.Key.Code == Keyboard::Space)
+				if (event.key.code == Keyboard::Space)
 					Dessin = false ;
 			}
 			
-			else if (event.type == Event::KeyPressed)
+			
+			if (event.type == Event::KeyPressed)
 			{
 				if (Keyboard::isKeyPressed(Keyboard::Q))
 				{
@@ -56,36 +65,39 @@ int main()
 			}
 		}
 		
-		if (Dessin)
+			if (Dessin)
 		{
-			/*Ajoute_point(tab_point, &taille, window);
-			cout << "mouse x: " << event.mouseButton.x << endl;
-			cout << "mouse y: " << event.mouseButton.y << endl;
-			cout << "taille : " << taille << endl;
-			cout << "x = " << tab_point[taille-1].x << " et y = " << tab_point[taille-1].y << endl;*/
-			
-			/* La fonction Ajoute_point est identique à la suite du code mais ne fonctionne pas ...*/
 			Position_Curseur(&x, &y, window);
 			p1.x = x;
 			p1.y = y;
 			
-			tab_point.push_back(p1);
-			taille ++;
+			if (zone(x,y,240,160,180, 45))
+				{
+				tab_point.push_back(p1);
+				taille ++;
+				}
+			else
+				{
+				tab_erreur.push_back(p1);
+				taille_erreur++;
+				}
+			
+			
 		}
 		
 		window.clear();
 		Grand_cercle(window);
 		
 		Position_ligne(ligneX, ligneY,window);
-		Dessine_point(x,y, window, R);
-		Dessine_plus_points(tab_point, taille, window, R);
+		
+		Dessine_plus_points(tab_point, tab_erreur, taille, taille_erreur, window, R);
 		window.display();
 	}
-	Time elapsed1 = clock.getElapsedTime();
-	cout << elapsed1.asSeconds() << std::endl;
-	clock.restart();
+	
+	
+	
+	
+	
+
 	return 0;
 }
-
-
-

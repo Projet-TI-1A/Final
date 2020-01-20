@@ -44,14 +44,26 @@ void Dessine_point(int x, int y, RenderWindow& window, int R)/*Dessine un point 
 }
 
 /********************************************************************************/
+	void Dessine_erreur(int x, int y, RenderWindow& window, int R)/*Dessine un point de taille 5px à la position (x,y)*/
+{
+	CircleShape point(R);
+	point.setFillColor(Color(255,0,0));
+	point.setPosition(x,y);
+	window.draw(point);
 
-void Dessine_plus_points(vector<point> tab, int taille, RenderWindow& window,int R)
+}
+
+/*******************************************************************************/
+void Dessine_plus_points(vector<point> tab, vector<point> erreur, int taille, int taille2, RenderWindow& window,int R)
 {
 	for (int i=0; i<taille; i++)
 	{
 		Dessine_point(tab[i].x, tab[i].y, window, R);
 	}
-
+	for (int i=0;i<taille2;i++)
+	{	
+		Dessine_erreur(erreur[i].x, erreur[i].y, window, R);
+	}
 }
 
 
@@ -59,10 +71,57 @@ void Dessine_plus_points(vector<point> tab, int taille, RenderWindow& window,int
 
 
 
+int remplissage(int x,int y,int a,int b,int r, int e,int **resul)
+{
+int i=0,j=0;
+int R=10;
+
+	if(zone(x,y,a,b,r,e)==1)
+	{
+		for (i=x-R;i<x+R;i++)
+			{ for(j=y-R;j<y+R;j++)
+				{resul[i][j]=1;}
+			}
+	}
+
+
+return 0;
+}
+
+
+
+int cercle(int i,int j,int a,int b,int r)
+{
+int verif=0;
+
+if (((i-a)^2+(j-b)^2)<=r^2)
+	{
+		verif=1;
+	}
+return verif;
+}
 
 
 
 
+int zone(int i,int j,int a,int b,int r, int e)
+{
+int l=320,L=480;
+int verif_cercle=0;
+int error=0;
+
+verif_cercle=cercle(i,j,a,b,r);
+
+if (i>=a+r-e && verif_cercle==1)
+	{
+		error=1;
+	}
+else 
+	{
+		error=0;
+	}
+return error;
+}
 
 
 
