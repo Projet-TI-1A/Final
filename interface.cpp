@@ -12,7 +12,7 @@ using namespace sf;
 void Grand_cercle(RenderWindow& window)/*Permet de trace le cercle représentant la tumeur*/
 {
 	CircleShape shape(180);
-	shape.setFillColor(Color(255,214,246));
+	shape.setFillColor(Color(255,214,246,150));
 	shape.setOutlineThickness(20);
 	shape.setOutlineColor(sf::Color(253,108,158));
 	shape.setPosition(150,30);
@@ -90,9 +90,35 @@ return 0;
 
 
 
+int cercle(int i,int j,int a,int b,int r)
+{
+int verif=0;
+
+if (((i-a)^2+(j-b)^2)<=r^2)
+	{
+		verif=1;
+	}
+return verif;
+}
 
 
 
 
+int zone(int i,int j,int a,int b,int r, int e)
+{
+int l,L=480;
+int error=0;
 
+l=(i-a)*(i-a)+(j-b)*(j-b);
+
+if ((i>=a+r-e) && (l<=r*r))
+	{
+		error=1;
+	}
+else 
+	{
+		error=0;
+	}
+return error;
+}
 
