@@ -1,6 +1,6 @@
 #ifndef TOUCHER_H
 #define TOUCHER_H
-
+#include <SFML/Graphics.hpp>
 using namespace std;
 using namespace sf;
 

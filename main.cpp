@@ -2,6 +2,7 @@
 #include <iostream>
 #include "interface.h"
 #include "toucher.h"
+#include "zone.h"
 #include <vector>
 #define R 5
 using namespace std;
@@ -71,7 +72,7 @@ int main()
 			p1.x = x;
 			p1.y = y;
 			
-			if (zone(x,y,240,160,180, 45))
+			if (zone(x,y,250,230,180, 45))
 				{
 				tab_point.push_back(p1);
 				taille ++;
