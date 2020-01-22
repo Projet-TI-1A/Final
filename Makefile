@@ -21,6 +21,7 @@ interface.o: toucher.h interface.h
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
 zone.o: toucher.h zone.h
+%.o : %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
 
