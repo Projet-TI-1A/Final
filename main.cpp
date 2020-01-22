@@ -34,6 +34,7 @@ int main()
 	
 	while (window.isOpen())
 	{
+		int temps_debut =clock();
 		Event event;
 		while (window.pollEvent(event))
 		{
@@ -93,6 +94,7 @@ int main()
 		
 		Dessine_plus_points(tab_point, tab_erreur, taille, taille_erreur, window, R);
 		window.display();
+		/*test_fin(aire_completer(r,k,condition6),temps_debut); */
 	}
 	
 	
