@@ -70,8 +70,7 @@ int main()
 			if (Dessin)
 		{
 			Position_Curseur(&x, &y, window);
-			p1.x = x;
-			p1.y = y;
+			p1.set(x, y);
 			
 			if (zone(x,y,250,230,180, 45))
 				{

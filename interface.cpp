@@ -7,6 +7,7 @@ using namespace std;
 using namespace sf;
 
 
+
 /********************************************************************************/
 
 void Grand_cercle(RenderWindow& window)/*Permet de trace le cercle représentant la tumeur*/
@@ -34,8 +35,10 @@ void Position_ligne(int x, int y,RenderWindow& window)/*Permet de mettre la lign
 
 /********************************************************************************/
 
-void Dessine_point(int x, int y, RenderWindow& window, int R)/*Dessine un point de taille 5px à la position (x,y)*/
+void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de taille 5px à la position (x,y)*/
 {
+	int x, y;
+	p.get(x,y);
 	CircleShape point(R);
 	point.setFillColor(Color(200,150,246));
 	point.setPosition(x,y);
@@ -44,8 +47,10 @@ void Dessine_point(int x, int y, RenderWindow& window, int R)/*Dessine un point 
 }
 
 /********************************************************************************/
-	void Dessine_erreur(int x, int y, RenderWindow& window, int R)/*Dessine un point de taille 5px à la position (x,y)*/
+	void Dessine_erreur(point p, RenderWindow& window, int R)/*Dessine un point de taille 5px à la position (x,y)*/
 {
+	int x,y;
+	p.get(x,y);
 	CircleShape point(R);
 	point.setFillColor(Color(255,0,0));
 	point.setPosition(x,y);
@@ -58,11 +63,11 @@ void Dessine_plus_points(vector<point> tab, vector<point> erreur, int taille, in
 {
 	for (int i=0; i<taille; i++)
 	{
-		Dessine_point(tab[i].x, tab[i].y, window, R);
+		Dessine_point(tab[i], window, R);
 	}
 	for (int i=0;i<taille2;i++)
 	{	
-		Dessine_erreur(erreur[i].x, erreur[i].y, window, R);
+		Dessine_erreur(tab[i], window, R);
 	}
 }
 
