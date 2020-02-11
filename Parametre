@@ -1,3 +1,4 @@
 #define R 5
 #define nbzones 5
-#define 
+#define long 480
+#define haut 320
