@@ -29,4 +29,25 @@ void Ajoute_point(vector<point> tab_point, int* taille, RenderWindow& window)
 	tab_point.push_back(p1);
 }
 
+/*********************************************************************************/
+
+void point::set(int& x, int& y)
+{
+	this->x=x;
+	this->y=y;
+}
+
+void point::get(int& x, int& y)
+{
+	x=this->x;
+	y=this->y;
+}
+
+void point::point(){}
+
+void point::point(int x, int y)
+{
+	this->x=x;
+	this->y=y;
+}
 
