@@ -1,3 +1,5 @@
 #define R 5 coté du carré
 #define nbzones 5
 #define r 180 //rayon du cercle
+#define larg 320
+#define long 480
