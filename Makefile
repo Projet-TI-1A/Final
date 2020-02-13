@@ -8,19 +8,19 @@ all: $(EXEC)
 Test_V1: main.o interface.o toucher.o zone.o
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
-main.o: interface.h toucher.h zone.h
+main.o: interface.h toucher.h zone.h parametre.h
 %.o: %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
-toucher.o: toucher.h interface.h
+toucher.o: toucher.h interface.h parametre.h
 %.o : %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
-interface.o: toucher.h interface.h
+interface.o: toucher.h interface.h parametre.h
 %.o : %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
-zone.o: toucher.h zone.h
+zone.o: toucher.h zone.h parametre.h
 %.o : %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
