@@ -35,7 +35,7 @@ void Position_ligne(int x, int y,RenderWindow& window)/*Permet de mettre la lign
 
 /********************************************************************************/
 
-void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de taille 5px à la position (x,y)*/
+void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de taille Rpx à la position (x,y)*/
 {
 	int x, y;
 	p.get(x,y);
@@ -47,7 +47,7 @@ void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de ta
 }
 
 /********************************************************************************/
-	void Dessine_erreur(point p, RenderWindow& window, int R)/*Dessine un point de taille 5px à la position (x,y)*/
+	void Dessine_erreur(point p, RenderWindow& window, int R)/*Dessine un point de taille Rpx à la position (x,y)*/
 {
 	int x,y;
 	p.get(x,y);
@@ -59,15 +59,20 @@ void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de ta
 }
 
 /*******************************************************************************/
-void Dessine_plus_points(vector<point> tab, vector<point> erreur, int taille, int taille2, RenderWindow& window,int R)
+void Dessine_plus_points(tabpoint tab,tabpoint erreur, RenderWindow& window,int R)
 {
-	for (int i=0; i<taille; i++)
+	point p1;
+	int taille=tab.gettaille(), taille2=erreur.gettaille(), i;
+	
+	for (i=0; i<taille; i++)
 	{
-		Dessine_point(tab[i], window, R);
+		tab.get(p1,i);
+		Dessine_point(p1, window, R);
 	}
-	for (int i=0;i<taille2;i++)
-	{	
-		Dessine_erreur(tab[i], window, R);
+	for (i=0;i<taille2;i++)
+	{
+		erreur.get(p1,i);
+		Dessine_erreur(p1, window, R);
 	}
 }
 
