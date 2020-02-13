@@ -4,17 +4,17 @@
 #include "toucher.h"
 #include "zone.h"
 #include <vector>
-#define R 5
-#include <ctime>
+#include "parametre.h"
+
 using namespace std;
 using namespace sf;
 
 
 int main()
 {
-	int ligneX=400, ligneY=20, taille=0, taille_erreur=0, x, y , Dessin = false;
-	vector<point> tab_point; 
-	vector<point> tab_erreur;
+	int ligneX=400, ligneY=20, x, y , Dessin = false;
+	tabpoint tab_point; 
+	tabpoint tab_erreur;
 	
 	RenderWindow window(VideoMode(480,320), "SFML works!",Style::Fullscreen);
 	window.clear();
@@ -28,7 +28,7 @@ int main()
 	Grand_cercle(window);
 	Position_ligne(ligneX, ligneY,window);
 	
-	temps_debut=clock();
+	
 	
 
 	point p1;
@@ -45,7 +45,7 @@ int main()
 			
 			if (event.type == Event::KeyPressed)
 			{
-				if (event.key.code == Keyboard::Space)
+				if ((event.key.code == Keyboard::N) or (event.key.code == Keyboard::Comma) or (event.key.code == Keyboard::B))
 				{
 					Dessin = true;
 				}
@@ -54,7 +54,7 @@ int main()
 			
 			if (event.type == Event::KeyReleased)
 			{
-				if (event.key.code == Keyboard::Space)
+				if ((event.key.code == Keyboard::Comma) or (event.key.code == Keyboard::N) or (event.key.code == Keyboard::B))
 					Dessin = false ;
 			}
 			
@@ -71,35 +71,34 @@ int main()
 			if (Dessin)
 		{
 			Position_Curseur(&x, &y, window);
-			p1.x = x;
-			p1.y = y;
+			p1.set(x, y);
 			
 			
 			if (zone(x,y,240,160,150, 72))
 				{
-				tab_point.push_back(p1);
-				taille ++;
+				tab_point.append(p1);
 				}
 			else
 				{
-				tab_erreur.push_back(p1);
-				taille_erreur++;
+				tab_erreur.append(p1);
 				}
 			
-			
+			if (aire_completee)
+			{
+				sf::String Text("FINI", SetFont(sf::Font::GetDefaultFont(), 50);
+			}
 		}
 		
 		window.clear();
-		/*window.draw(sprite);*/
 		Grand_cercle(window);
 		
 		Position_ligne(ligneX, ligneY,window);
 		
-		Dessine_plus_points(tab_point, tab_erreur, taille, taille_erreur, window, R);
+		Dessine_plus_points(tab_point, tab_erreur, window, R);
 		window.display();
+		
 		/*test_fin(aire_completer(r,k,condition6),temps_debut); */
 	}
-	
 	
 	
 	
