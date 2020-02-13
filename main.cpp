@@ -11,9 +11,9 @@ using namespace sf;
 
 int main()
 {
-	int ligneX=400, ligneY=20, x, y , Dessin = false;
-	tabpoint tab_point; 
-	tabpoint tab_erreur;
+	int ligneX=400, ligneY=20, taille=0, taille_erreur=0, x, y , Dessin = false;
+	vector<point> tab_point; 
+	vector<point> tab_erreur;
 	
 	RenderWindow window(VideoMode(480,320), "SFML works!",Style::Fullscreen);
 	window.clear();
@@ -44,7 +44,7 @@ int main()
 			
 			if (event.type == Event::KeyPressed)
 			{
-				if ((event.key.code == Keyboard::N) or (event.key.code == Keyboard::Comma) or (event.key.code == Keyboard::B))
+				if (event.key.code == Keyboard::Space)
 				{
 					Dessin = true;
 				}
@@ -53,7 +53,7 @@ int main()
 			
 			if (event.type == Event::KeyReleased)
 			{
-				if ((event.key.code == Keyboard::Comma) or (event.key.code == Keyboard::N) or (event.key.code == Keyboard::B))
+				if (event.key.code == Keyboard::Space)
 					Dessin = false ;
 			}
 			
@@ -70,30 +70,35 @@ int main()
 			if (Dessin)
 		{
 			Position_Curseur(&x, &y, window);
-			p1.set(x, y);
+			p1.x = x;
+			p1.y = y;
 			
-			if (zone(x,y,250,230,180, 45))
+			
+			if (zone(x,y,240,160,150, 72))
 				{
-				tab_point.append(p1);
+				tab_point.push_back(p1);
+				taille ++;
 				}
 			else
 				{
-				tab_erreur.append(p1);
+				tab_erreur.push_back(p1);
+				taille_erreur++;
 				}
 			
 			
 		}
 		
 		window.clear();
+		/*window.draw(sprite);*/
 		Grand_cercle(window);
 		
 		Position_ligne(ligneX, ligneY,window);
 		
-		Dessine_plus_points(tab_point, tab_erreur, window, R);
+		Dessine_plus_points(tab_point, tab_erreur, taille, taille_erreur, window, R);
 		window.display();
-		
 		/*test_fin(aire_completer(r,k,condition6),temps_debut); */
 	}
+	
 	
 	
 	
