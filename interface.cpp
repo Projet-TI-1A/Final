@@ -2,6 +2,7 @@
 #include <iostream>
 #include "toucher.h"
 #include "interface.h"
+#include "parametre.h"
 
 using namespace std;
 using namespace sf;
@@ -12,11 +13,11 @@ using namespace sf;
 
 void Grand_cercle(RenderWindow& window)/*Permet de trace le cercle représentant la tumeur*/
 {
-	CircleShape shape(180);
+	CircleShape shape(150);
 	shape.setFillColor(Color(255,214,246,150));
 	shape.setOutlineThickness(20);
 	shape.setOutlineColor(sf::Color(253,108,158));
-	shape.setPosition(150,30);
+	shape.setPosition(100,20);
 	window.draw(shape);
 
 }
@@ -39,10 +40,10 @@ void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de ta
 {
 	int x, y;
 	p.get(x,y);
-	CircleShape point(R);
-	point.setFillColor(Color(200,150,246));
-	point.setPosition(x,y);
-	window.draw(point);
+	RectangleShape carre(Vector2f(10,10));
+	carre.setFillColor(Color(200,150,246));
+	carre.setPosition(x,y);
+	window.draw(carre);
 
 }
 
@@ -51,10 +52,10 @@ void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de ta
 {
 	int x,y;
 	p.get(x,y);
-	CircleShape point(R);
-	point.setFillColor(Color(255,0,0));
-	point.setPosition(x,y);
-	window.draw(point);
+	RectangleShape carre(Vector2f(10,10));
+	carre.setFillColor(Color(255,0,0));
+	carre.setPosition(x,y);
+	window.draw(carre);
 
 }
 
