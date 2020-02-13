@@ -27,7 +27,7 @@ int main()
 	Grand_cercle(window);
 	Position_ligne(ligneX, ligneY,window);
 	
-	
+	temps_debut=clock();
 	
 
 	point p1;
