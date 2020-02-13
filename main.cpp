@@ -5,6 +5,7 @@
 #include "zone.h"
 #include <vector>
 #define R 5
+#include <ctime>
 using namespace std;
 using namespace sf;
 
