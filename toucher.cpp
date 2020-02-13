@@ -21,8 +21,7 @@ void Ajoute_point(vector<point> tab_point, int* taille, RenderWindow& window)
 	int x, y;
 	point p1;
 	Position_Curseur(&x, &y, window);
-	p1.x = x;
-	p1.y = y;
+	p1.set(x,y);
 	
 	tab_point.push_back(p1);
 	*taille = *taille + 1 ;
@@ -43,11 +42,47 @@ void point::get(int& x, int& y)
 	y=this->y;
 }
 
-void point::point(){}
+point::point(){}
 
-void point::point(int x, int y)
+point::point(int x, int y)
 {
 	this->x=x;
 	this->y=y;
 }
+
+/*******************************************************************************/
+
+tabpoint::tabpoint(){taille=0;}
+
+void tabpoint::append(point& p)
+{
+	this->tab.push_back(p);
+	taille++;
+}
+
+void tabpoint::get(point& p, int i)
+{
+	int x,y;
+	tab[i].get(x, y);
+	p.set(x, y);
+}
+
+int tabpoint::gettaille()
+{
+	return(taille);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

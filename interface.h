@@ -8,8 +8,8 @@ using namespace std;
 
 void Grand_cercle(RenderWindow&);
 void Position_ligne(int ,int, RenderWindow&);
-void Dessine_point(int , int,RenderWindow&, int );
-void Dessine_plus_points(vector<point>, vector<point>, int, int,  RenderWindow&,int );
+void Dessine_point(point ,RenderWindow&, int );
+void Dessine_plus_points(tabpoint, tabpoint, RenderWindow&,int );
 void Dessine_erreur(int x, int y, RenderWindow& window, int R);
 
 #endif

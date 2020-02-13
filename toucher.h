@@ -13,8 +13,23 @@ private :
 public :
 	point();
 	point(int, int);
-	void set(int, int );
-	void get(int, int );
+	void set(int&, int& );
+	void get(int&, int& );
+
+};
+
+
+class tabpoint
+{
+private:
+	vector<point> tab;
+	int taille;
+public:
+	tabpoint();
+	void append(point&);/*Ajoute un objet en fin de tableau*/
+	void get(point&, int); /*Recupere le point en position i*/
+	int gettaille();
+
 };
 
 void Position_Curseur(int*, int* , RenderWindow&);
