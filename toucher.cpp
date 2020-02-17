@@ -73,7 +73,24 @@ int tabpoint::gettaille()
 }
 
 
+/*****************************************************************************/
 
+void tabpoint::reset()
+{
+	this->tab.clear();
+	this->taille=0;
+}
+
+/********************************************************************************/
+
+void restart(tabpoint& t1, tabpoint& t2, int& k, int& chrono)
+{
+	k=0;
+	chrono=0;
+	t1.reset();
+	t2.reset();
+	
+}
 
 
 
