@@ -43,10 +43,10 @@ int calculaire(int k,int largeur,int a,int b,int r)
 	return aire;
 }
 
-int main()
+/*int main()
 {	int aire=0;
 	
 	aire=calculaire(2,320,240,160,300);
 	printf("%i \n",aire);
 	return 0;
-}
+}*/
