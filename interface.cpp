@@ -36,31 +36,31 @@ void Position_ligne(int x, int y,RenderWindow& window)/*Permet de mettre la lign
 
 /********************************************************************************/
 
-void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de taille Rpx à la position (x,y)*/
+void Dessine_point(point p, RenderWindow& window, int cote)/*Dessine un point de taille Rpx à la position (x,y)*/
 {
 	int x, y;
 	p.get(x,y);
-	RectangleShape carre(Vector2f(10,10));
+	RectangleShape carre(Vector2f(cote, cote));
 	carre.setFillColor(Color(200,150,246));
-	carre.setPosition(x,y);
+	carre.setPosition(x-int(R/2),y-int(R/2));
 	window.draw(carre);
 
 }
 
 /********************************************************************************/
-	void Dessine_erreur(point p, RenderWindow& window, int R)/*Dessine un point de taille Rpx à la position (x,y)*/
+	void Dessine_erreur(point p, RenderWindow& window, int cote)/*Dessine un point de taille Rpx à la position (x,y)*/
 {
 	int x,y;
 	p.get(x,y);
-	RectangleShape carre(Vector2f(10,10));
+	RectangleShape carre(Vector2f(cote, cote));
 	carre.setFillColor(Color(255,0,0));
-	carre.setPosition(x,y);
+	carre.setPosition(x-int(R/2),y-int(R/2));
 	window.draw(carre);
 
 }
 
 /*******************************************************************************/
-void Dessine_plus_points(tabpoint tab,tabpoint erreur, RenderWindow& window,int R)
+void Dessine_plus_points(tabpoint tab,tabpoint erreur, RenderWindow& window,int cote)
 {
 	point p1;
 	int taille=tab.gettaille(), taille2=erreur.gettaille(), i;
@@ -68,12 +68,12 @@ void Dessine_plus_points(tabpoint tab,tabpoint erreur, RenderWindow& window,int 
 	for (i=0; i<taille; i++)
 	{
 		tab.get(p1,i);
-		Dessine_point(p1, window, R);
+		Dessine_point(p1, window, cote);
 	}
 	for (i=0;i<taille2;i++)
 	{
 		erreur.get(p1,i);
-		Dessine_erreur(p1, window, R);
+		Dessine_erreur(p1, window, cote);
 	}
 }
 
