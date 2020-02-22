@@ -4,7 +4,15 @@
 #include "toucher.h"
 #include "zone.h"
 #include <vector>
-#include "parametre.h"
+#define R 5 //coté du curseur
+#define nbzone 5
+#define r 150 //rayon du cercle
+#define L 480 //longeur de l'écran
+#define l 320 //largeur de l'écran
+#define xcentre 240 //position du centre du cercle
+#define ycentre 160
+#define condition 95 //pourcentage minimum a completer pour passer a la zone suivante
+
 
 using namespace std;
 using namespace sf;
@@ -12,11 +20,18 @@ using namespace sf;
 
 int main()
 {
-	int ligneX=400, ligneY=20, x, y , Dessin = false, k;
-	tabpoint tab_point; 
-	tabpoint tab_erreur;
+	int ligneX=400, ligneY=20, taille=0, taille_erreur=0, nbzones=4, x, y ,k=0, Dessin = false;
+	vector<point> tab_point; 
+	vector<point> tab_erreur;
+	const int e=2*int(r/nbzones);
+	int aire=0;
+	int **tab_pixel = new int* [L];
+        for (int i = 0; i < L; i++)
+        {tab_pixel[i] = new int[e];}
+ 
+        
 	
-	Text text;
+	
 	RenderWindow window(VideoMode(480,320), "SFML works!",Style::Fullscreen);
 	window.clear();
 	sf::Texture texture;
@@ -29,15 +44,9 @@ int main()
 	Grand_cercle(window);
 	Position_ligne(ligneX, ligneY,window);
 	
-// Display the list of all the video modes available for fullscreen
-	/*std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
-	for (std::size_t i = 0; i < modes.size(); ++i)
-	{
-		sf::VideoMode mode = modes[i];
-		std::cout << "Mode #" << i << ": "
-		<< mode.width << "x" << mode.height << " - "
-		<< mode.bitsPerPixel << " bpp" << std::endl;
-	}*/
+	
+	
+
 	point p1;
 	
 	while (window.isOpen())
@@ -52,74 +61,64 @@ int main()
 			
 			if (event.type == Event::KeyPressed)
 			{
-				if ((event.key.code == Keyboard::N) or (event.key.code == Keyboard::B))
+				if (event.key.code == Keyboard::Space)
 				{
 					Dessin = true;
-				}
-				
-				if (Keyboard::isKeyPressed(Keyboard::Q))
-				{
-					window.close();
 				}
 			}
 			
 			
 			if (event.type == Event::KeyReleased)
 			{
-				if ((event.key.code == Keyboard::N) or (event.key.code == Keyboard::B))
-				{
+				if (event.key.code == Keyboard::Space)
 					Dessin = false ;
-				}
-				
-				if(event.key.code == Keyboard::Comma)
+			}
+			
+			
+			if (event.type == Event::KeyPressed)
+			{
+				if (Keyboard::isKeyPressed(Keyboard::Q))
 				{
-					restart(tab_point, tab_erreur, k, temps_debut);
+					window.close();
 				}
-				
 			}
 		}
 		
-		if (Dessin)
+			if (Dessin)
 		{
 			Position_Curseur(&x, &y, window);
-			p1.set(x, y);
+			p1.x = x;
+			p1.y = y;
 			
-			
-			if (zone(x,y,240,160,150, 72))
+			if (zone(k, x, y, xcentre, ycentre, r, R, e))
 				{
-				tab_point.append(p1);
+				tab_point.push_back(p1);
+				taille ++;
+				remplissage(k,x, y, xcentre, r, R, e, aire, tab_pixel);
 				}
 			else
 				{
-				tab_erreur.append(p1);
+				tab_erreur.push_back(p1);
+				taille_erreur++;
 				}
+			
+			
 		}
-		
-		if (1)
-			{
-				Font font;
-				if (!font.loadFromFile("arial.ttf"))
-				{
-					cout << "Load fail" << endl;
-				}
-				
-				text.setFont(font);
-				text.setString("FINI");
-				text.setCharacterSize(24);
-				text.setFillColor(sf::Color::Blue);
-				text.setPosition(100, 20);
-			}
-		
+/*
+		for (int i = 0; i < L; i++)
+			{delete [] tab_pixel[i];
+  			delete [] tab_pixel;}
+		*/
 		window.clear();
 		Grand_cercle(window);
 		
 		Position_ligne(ligneX, ligneY,window);
-		Dessine_plus_points(tab_point, tab_erreur, window, R);
-		window.draw(text);
-		window.display();
 		
+		Dessine_plus_points(tab_point, tab_erreur, taille, taille_erreur, window, R);
+		window.display();
 		/*test_fin(aire_completer(r,k,condition6),temps_debut); */
 	}
+	
 	
 	
 	
