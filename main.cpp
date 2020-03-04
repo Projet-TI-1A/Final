@@ -17,7 +17,7 @@ int main()
 	vector<point> tab_point; 
 	vector<point> tab_erreur;
 	const int e=2*int(r/nbzones);
-	int aire=0;
+	int aire=0, airetotale=0;
 	int **tab_pixel = new int* [L];
         for (int i = 0; i < L; i++)
         {tab_pixel[i] = new int[e];}
@@ -94,12 +94,14 @@ int main()
 				tab_erreur.push_back(p1);
 				taille_erreur++;
 				}
-			switch ( aire )   //en fonction de l'aire on fait telle action mais on teste pas les autres
+			
+			airetotale= calculaire(int k,int larg,int xcentre,int ycentre,int r)
+			switch ( aire_completee(aire, airetotale, condition80, confition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
 				{
-					case 95% aire totale:
+					case 2: //95%
 					k+=1;
 					break;
-					case 80% aire totale :
+					case 1 : //80%
 					//mettre les carrés verts?
 					break;
 					default:
