@@ -95,7 +95,7 @@ int main()
 				taille_erreur++;
 				}
 			
-			airetotale= calculaire(int k,int larg,int xcentre,int ycentre,int r)
+			airetotale= calculaire(k,larg,xcentre, ycentre, r);
 			switch ( aire_completee(aire, airetotale, condition80, confition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
 				{
 					case 2: //95%
