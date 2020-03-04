@@ -55,16 +55,15 @@ int main()
 			
 			if (event.type == Event::KeyPressed)
 			{
-				if (event.key.code == Keyboard::Space)
+				if ((event.key.code == Keyboard::N) or (event.key.code == Keyboard::Comma) or (event.key.code == Keyboard::B))
 				{
 					Dessin = true;
 				}
 			}
 			
-			
 			if (event.type == Event::KeyReleased)
 			{
-				if (event.key.code == Keyboard::Space)
+				if if ((event.key.code == Keyboard::Comma) or (event.key.code == Keyboard::N) or (event.key.code == Keyboard::B))
 					Dessin = false ;
 			}
 			
