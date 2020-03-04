@@ -121,7 +121,7 @@ int main()
 		
 		Position_ligne(ligneX, ligneY,window);
 		
-		Dessine_plus_points(tab_point, tab_erreur, taille, taille_erreur, window, R);
+		Dessine_plus_points(tab_point, tab_erreur, window, R);
 		window.display();
 		/*test_fin(aire_completer(r,k,condition6),temps_debut); */
 	}
