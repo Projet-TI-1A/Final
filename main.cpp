@@ -17,7 +17,7 @@ int main()
 	int ligneX=400, ligneY=20, x, y ,k=0, Dessin = false;
 	tabpoint tab_point;
 	tabpoint tab_erreur;
-	const int e=2*int(r/nbzones);
+	const int e=2*int(r/nbzone);
 	int aire=0, airetotale=0;
 	int **tab_pixel = new int* [L];
         for (int i = 0; i < L; i++)
