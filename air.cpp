@@ -4,7 +4,6 @@
 #include "interface.h"
 #include "toucher.h"
 #include "zone.h"
-#include "parametre.h"
 #include <vector>
 /*#define diametre 360*/
 using namespace std;
@@ -15,7 +14,7 @@ using namespace sf;
 /*pour calculer aire pas besoin de tableau juste besoin nombre pixels
   ds le tableau et enlever les pixels (i,j) qui sont pas ds cercle*/
 
-int calculaire(int k,int largeur,int a,int b,int r)
+int calculaire(int k,int largeur,int a,int b,int r, int R)
 {
 	int i,j=0,e,aire,z,f,x,l,diametre;
 	diametre=2*r;
