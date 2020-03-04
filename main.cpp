@@ -18,7 +18,7 @@ int main()
 	tabpoint tab_point;
 	tabpoint tab_erreur;
 	const int e=2*int(r/nbzone);
-	int ligneX= xcentre +r-(k+1)*e, ligneY=20,
+	int ligneX= xcentre +r-(k+1)*e, ligneY=20;
 	int airetotale[nbzone];
 	int aire=0;
 	int **tab_pixel = new int* [L];
@@ -103,7 +103,13 @@ int main()
 				{
 					case 2: //95%
 					k+=1;
-					ligneX=a+r-(k+1)*e;
+					ligneX=xcentre+r-(k+1)*e;
+					//réinitialisation des tableaux
+					tab_point.reset();
+					tab_erreur.reset();
+					for (int i = 0; i < L; i++)
+        					for(int j = 0; j < e; j++)
+							{tab_pixel[i][e]=0;}
 					break;
 					case 1 : //80%
 					//mettre les carrés verts?
