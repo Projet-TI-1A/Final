@@ -17,8 +17,6 @@ int main()
 	int ligneX=400, ligneY=20, taille=0, taille_erreur=0, nbzones=4, x, y ,k=0, Dessin = false;
 	tabpoint tab_point;
 	tabpoint tab_erreur;
-	vector<point> tab_point; 
-	vector<point> tab_erreur;
 	const int e=2*int(r/nbzones);
 	int aire=0, airetotale=0;
 	int **tab_pixel = new int* [L];
@@ -83,18 +81,16 @@ int main()
 			if (Dessin)
 		{
 			Position_Curseur(&x, &y, window);
-			p1.x = x;
-			p1.y = y;
-			
+			p1.set(x,y);
 			if (zone(k, x, y, xcentre, ycentre, r, R, e))
 				{
-				tab_point.push_back(p1);
+				tab_point.append(p1);
 				taille ++;
 				remplissage(k,x, y, xcentre, r, R, e, aire, tab_pixel);
 				}
 			else
 				{
-				tab_erreur.push_back(p1);
+				tab_erreur.append(p1);
 				taille_erreur++;
 				}
 			
