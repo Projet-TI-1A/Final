@@ -4,9 +4,10 @@
 #include "interface.h"
 #include "toucher.h"
 #include "zone.h"
+#include "parametre.h"
 #include <vector>
 /*#define diametre 360*/
-#define nombrezone 5
+#define nbzone 5
 using namespace std;
 using namespace sf;
 
@@ -19,9 +20,9 @@ int calculaire(int k,int largeur,int a,int b,int r)
 {
 	int i,j=0,e,aire,z,f,x,l,diametre;
 	diametre=2*r;
-	e=k*(diametre/nombrezone);
-	f=(k-1)*(diametre/nombrezone);
-	aire=(diametre/nombrezone)*largeur;
+	e=k*(diametre/nbzone);
+	f=(k-1)*(diametre/nbzone);
+	aire=(diametre/nbzone)*largeur;
 	z=a+r-e;
 	i=z;
 	x=a+r-f;
