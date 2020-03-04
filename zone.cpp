@@ -49,7 +49,7 @@ return 0;
 /*******************************************************************/
 /*verifie que la zone est coloriée à 95% ou 80% pour fair apparaitre les pixel isolés en coloré*/
 
-int aire_completee(int aire,int airetotale, int condition80, int confition95)
+int aire_completee(int aire,int airetotale, int condition80, int condition95)
 
 {
 	int pourcentage=(aire/airetotale)*100;
