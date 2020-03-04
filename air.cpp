@@ -29,7 +29,7 @@ int calculaire(int k,int largeur,int a,int b,int r)
 	while (i>=z && i<x)
 	{ 	j=0;
 		l=320;
-		while(!zone(i,j,a,b,r,e))
+		while(!zone(k,i,j,a,b,r,R,e))
 		{	
 			j+=1;
 			aire=aire-1;
