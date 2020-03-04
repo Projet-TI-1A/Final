@@ -52,27 +52,30 @@ int main()
 			if (event.type == Event::Closed)
 				{window.close();}
 			
-			
 			if (event.type == Event::KeyPressed)
 			{
-				if ((event.key.code == Keyboard::N) or (event.key.code == Keyboard::Comma) or (event.key.code == Keyboard::B))
+				if (event.key.code == Keyboard::B)
 				{
 					Dessin = true;
 				}
+				
+				if ((event.key.code == Keyboard::Q) or (event.key.code == Keyboard::N))
+				{
+					window.close();
+				}
 			}
+			
 			
 			if (event.type == Event::KeyReleased)
 			{
-				if if ((event.key.code == Keyboard::Comma) or (event.key.code == Keyboard::N) or (event.key.code == Keyboard::B))
-					Dessin = false ;
-			}
-			
-			
-			if (event.type == Event::KeyPressed)
-			{
-				if (Keyboard::isKeyPressed(Keyboard::Q))
+				if (event.key.code == Keyboard::B)
 				{
-					window.close();
+					Dessin = false ;
+				}
+				
+				if(event.key.code == Keyboard::Comma)
+				{
+					restart(tab_point, tab_erreur, k, temps_debut);
 				}
 			}
 		}
