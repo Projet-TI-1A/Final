@@ -3,15 +3,8 @@
 #include "interface.h"
 #include "toucher.h"
 #include "zone.h"
+#include "parametre.h"
 #include <vector>
-#define R 5 //coté du curseur
-#define nbzone 5
-#define r 150 //rayon du cercle
-#define L 480 //longeur de l'écran
-#define l 320 //largeur de l'écran
-#define xcentre 240 //position du centre du cercle
-#define ycentre 160
-#define condition 95 //pourcentage minimum a completer pour passer a la zone suivante
 
 
 using namespace std;
