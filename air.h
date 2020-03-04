@@ -2,4 +2,4 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-int calculaire(int k,int largeur,int a,int b,int r, int R);
+int calculaire(int ,int ,int ,int ,int , int );
