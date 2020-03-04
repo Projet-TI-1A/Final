@@ -94,7 +94,17 @@ int main()
 				tab_erreur.push_back(p1);
 				taille_erreur++;
 				}
-			
+			switch ( aire )   //en fonction de l'aire on fait telle action mais on teste pas les autres
+				{
+					case 95% aire totale:
+					k+=1;
+					break;
+					case 80% aire totale :
+					//mettre les carrés verts?
+					break;
+					default:
+					//rien faire
+				}
 			
 		}
 /*
