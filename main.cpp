@@ -85,13 +85,11 @@ int main()
 			if (zone(k, x, y, xcentre, ycentre, r, R, e))
 				{
 				tab_point.append(p1);
-				taille ++;
 				remplissage(k,x, y, xcentre, r, R, e, aire, tab_pixel);
 				}
 			else
 				{
 				tab_erreur.append(p1);
-				taille_erreur++;
 				}
 			}
 			airetotale= calculaire(k,l,xcentre, ycentre, r,R);
