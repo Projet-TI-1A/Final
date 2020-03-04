@@ -24,6 +24,6 @@ zone.o: toucher.h zone.h parametre.h
 %.o : %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
-air.o:
+air.o: air.h
 %.o : %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
