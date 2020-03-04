@@ -79,7 +79,7 @@ int main()
 		}
 		
 			if (Dessin)
-		{
+			{
 			Position_Curseur(&x, &y, window);
 			p1.set(x,y);
 			if (zone(k, x, y, xcentre, ycentre, r, R, e))
@@ -93,22 +93,22 @@ int main()
 				tab_erreur.append(p1);
 				taille_erreur++;
 				}
-			
+			}
 			airetotale= calculaire(k,l,xcentre, ycentre, r);
 			switch ( aire_completee(aire, airetotale, condition80, condition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
-				{
-					case 2: //95%
-					k+=1;
-					break;
-					case 1 : //80%
-					//mettre les carrés verts?
-					break;
-					default:
-					//rien faire
-					break;
-				}
+			{
+				case 2: //95%
+				k+=1;
+				break;
+				case 1 : //80%
+				//mettre les carrés verts?
+				break;
+				default:
+				//rien faire
+				break;
+			}
 			
-		}
+
 /*
 		for (int i = 0; i < L; i++)
 			{delete [] tab_pixel[i];
