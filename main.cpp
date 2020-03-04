@@ -14,15 +14,19 @@ using namespace sf;
 
 int main()
 {
-	int ligneX=400, ligneY=20, x, y ,k=0, Dessin = false;
+	int x, y ,k=0, Dessin = false;
 	tabpoint tab_point;
 	tabpoint tab_erreur;
 	const int e=2*int(r/nbzone);
-	int aire=0, airetotale=0;
+	int ligneX= xcentre +r-(k+1)*e, ligneY=20,
+	int airetotale[nbzone];
+	int aire=0;
 	int **tab_pixel = new int* [L];
         for (int i = 0; i < L; i++)
         {tab_pixel[i] = new int[e];}
- 
+	
+	for (int i = 0; i < nbzone; i++)
+        {airetotale[i] = calculaire(i,l,xcentre, ycentre, r,R);} 
         
 	
 	
@@ -95,10 +99,11 @@ int main()
 					}
 				
 				airetotale= calculaire(k,l,xcentre, ycentre, r,R);
-				switch ( aire_completee(aire, airetotale, condition80, condition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
+				switch ( aire_completee(aire, airetotale[k], condition80, condition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
 				{
 					case 2: //95%
 					k+=1;
+					ligneX=a+r-(k+1)*e;
 					break;
 					case 1 : //80%
 					//mettre les carrés verts?
