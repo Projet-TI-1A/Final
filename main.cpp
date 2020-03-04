@@ -4,6 +4,7 @@
 #include "toucher.h"
 #include "zone.h"
 #include "parametre.h"
+#include "air.h"
 #include <vector>
 
 
@@ -95,8 +96,8 @@ int main()
 				taille_erreur++;
 				}
 			
-			airetotale= calculaire(k,larg,xcentre, ycentre, r);
-			switch ( aire_completee(aire, airetotale, condition80, confition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
+			airetotale= calculaire(k,l,xcentre, ycentre, r);
+			switch ( aire_completee(aire, airetotale, condition80, condition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
 				{
 					case 2: //95%
 					k+=1;
@@ -106,6 +107,7 @@ int main()
 					break;
 					default:
 					//rien faire
+					break;
 				}
 			
 		}
