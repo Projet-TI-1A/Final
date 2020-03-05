@@ -26,7 +26,7 @@ int main()
         {tab_pixel[i] = new int[e];}
 	
 	for (int i = 0; i < nbzone; i++)
-        {airetotale[i] = calculaire(i,l,xcentre, ycentre, r,R);} 
+        {airetotale[i] = calculaire(i,e,l,xcentre, ycentre, r, R);} 
         
 	
 	
