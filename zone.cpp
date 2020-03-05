@@ -8,6 +8,7 @@
 int zone(int k,int x,int y,int a,int b,int r,int R, int e)
 {
 	//attention penser aux effets de bords erreurs de segmentation
+	//k va de 0 à 4
 	int l, error=0;
 	l=(a-x)*(a-x)+(b-y)*(b-y);
 	
@@ -29,17 +30,17 @@ int remplissage(int k,int x,int y,int xa,int r,int R, int e,int &aire, int **res
 {
 int i=0,j=0;
 int xp=x-(xa+r-e*(k+1)); //initialisation de x par rapport au tableau
-if (resul[xp][y]!=1)
+if (resul[y][xp]!=1)
 	{
-	for (i=xp-R;i<xp+R;i++)
-		{ for(j=y-R;j<y+R;j++)
+	for (j=y-R+1;j<y+R-1;j++)
+		{ for(i=xp-R+1;i<xp+R-1;i++)
 			{
-				resul[i][j]=1;
+				resul[j][i]=1;
 					
 			}
 		}
 	aire+=R*R;
-	resul[xp][y]=1;
+	resul[y][xp]=1;
 	}
 return 0;
 }
@@ -57,3 +58,5 @@ int aire_completee(int aire,int airetotale, int condition80, int condition95)
 	else if (pourcentage>condition80) {return 1;}
 	else {return 0;}
 }
+
+

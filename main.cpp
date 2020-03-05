@@ -139,7 +139,8 @@ int main()
 	
 	
 	
-	
+	cout << aire << endl;
+	cout << airetotale[0];
 	
 
 	return 0;
