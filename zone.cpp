@@ -38,7 +38,6 @@ if (resul[xp][y]!=1)
 					
 			}
 		aire+=R*R;
-		std::cout<<aire<<std::endl;
 		}
 	resul[xp][y]!=1;
 	}
