@@ -23,7 +23,7 @@ int calculaire(int k,int e,int largeur,int a,int b,int r, int R)
 	sup=a+r-k*e; //borne sup de la zone
 	inf=a+r-(k+1)*e; //born inf de la zone
 	i=inf;
-	while (i>=z && i<x)
+	while (i>=inf && i<sup)
 	{ 	j=0;
 		l=largeur;
 		while(!zone(k,i,j,a,b,r,R,e))
