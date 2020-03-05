@@ -37,9 +37,9 @@ if (resul[xp][y]!=1)
 				resul[i][j]=1;
 					
 			}
-		aire+=R*R;
 		}
-	resul[xp][y]!=1;
+	aire+=R*R;
+	resul[xp][y]=1;
 	}
 return 0;
 }
