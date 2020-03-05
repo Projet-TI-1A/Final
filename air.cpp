@@ -16,19 +16,16 @@ using namespace sf;
 /*pour calculer aire pas besoin de tableau juste besoin nombre pixels
   ds le tableau et enlever les pixels (i,j) qui sont pas ds cercle*/
 
-int calculaire(int k,int largeur,int a,int b,int r, int R)
+int calculaire(int k,int e,int largeur,int a,int b,int r, int R)
 {
-	int i,j=0,e,aire,z,f,x,l,diametre;
-	diametre=2*r;
-	e=k*(diametre/nbzone);
-	f=(k-1)*(diametre/nbzone);
-	aire=(diametre/nbzone)*largeur;
-	z=a+r-e;
-	i=z;
-	x=a+r-f;
+	int i,j,l,aire,sup,inf,diametre;
+	aire=(2*r/nbzone)*largeur;
+	sup=a+r-k*e; //borne sup de la zone
+	inf=a+r-(k+1)*e; //born inf de la zone
+	i=inf;
 	while (i>=z && i<x)
 	{ 	j=0;
-		l=320;
+		l=largeur;
 		while(!zone(k,i,j,a,b,r,R,e))
 		{	
 			j+=1;
