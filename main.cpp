@@ -105,6 +105,7 @@ int main()
 					k+=1;
 					ligneX=xcentre+r-(k+1)*e;
 					//réinitialisation des tableaux
+					aire=0;
 					tab_point.reset();
 					tab_erreur.reset();
 					for (int i = 0; i < L; i++)
