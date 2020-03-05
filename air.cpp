@@ -6,6 +6,8 @@
 #include "zone.h"
 #include <vector>
 /*#define diametre 360*/
+#define nbzone 5
+
 using namespace std;
 using namespace sf;
 
