@@ -98,7 +98,7 @@ int main()
 					tab_erreur.append(p1);
 					}
 				
-				airetotale= calculaire(k,l,xcentre, ycentre, r,R);
+			
 				switch ( aire_completee(aire, airetotale[k], condition80, condition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
 				{
 					case 2: //95%
