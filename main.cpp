@@ -134,7 +134,7 @@ int main()
 		
 		Dessine_plus_points(tab_point, tab_erreur, window, R);
 		window.display();
-		/*test_fin(aire_completer(r,k,condition6),temps_debut); */
+		/*test_fin(aire_completee(aire,airetotale[nbzone],condition95,condition80),temps_debut);*/
 	}
 	
 	
