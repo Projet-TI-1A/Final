@@ -2,7 +2,7 @@
 #define PARAMETRE
 
 
-#define R 5 //coté du curseur
+#define R 20 //coté du curseur
 #define nbzone 5
 #define r 150 //rayon du cercle
 #define L 480 //longeur de l'écran
