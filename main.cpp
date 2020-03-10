@@ -6,7 +6,7 @@
 #include "parametre.h"
 #include "air.h"
 #include <vector>
-
+#include "ligne.h"
 
 using namespace std;
 using namespace sf;
@@ -39,9 +39,7 @@ int main()
 	sprite.setTexture(texture);
 	sprite.setScale(sf::Vector2f(1.5f,1.5f));
 	
-	Grand_cercle(window);
-	Position_ligne(ligneX, ligneY,window);
-	
+	ligne l1(ligneX, ligneY), l2(ligneX+e, ligneY);
 	
 	
 
@@ -103,7 +101,8 @@ int main()
 				{
 					case 2: //95%
 					k+=1;
-					ligneX=xcentre+r-(k+1)*e;
+					l1.set(xcentre+r-(k+1)*e, ligneY);
+					l2.set(xcentre+r-(k+1)*e+e, ligneY);
 					//réinitialisation des tableaux
 					aire=0;
 					tab_point.reset();
