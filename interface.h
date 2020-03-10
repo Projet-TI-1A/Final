@@ -10,6 +10,7 @@ void Grand_cercle(RenderWindow&);
 void Position_ligne(int ,int, RenderWindow&);
 void Dessine_point(point ,RenderWindow&, int );
 void Dessine_plus_points(tabpoint, tabpoint, RenderWindow&,int );
+void Dessine_restant(point p, RenderWindow& window, int cote);
 void Dessine_erreur(int x, int y, RenderWindow& window, int R);
 
 #endif
