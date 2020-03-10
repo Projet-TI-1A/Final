@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "interface.h"
+#include "test_fin.h"
 #include "toucher.h"
 #include "zone.h"
 #include "parametre.h"
@@ -41,7 +42,9 @@ int main()
 	
 	Grand_cercle(window);
 	Position_ligne(ligneX, ligneY,window);
-	
+
+
+	int temps_debut =clock();
 	
 	
 
@@ -49,7 +52,7 @@ int main()
 	
 	while (window.isOpen())
 	{
-		int temps_debut =clock();
+		
 		Event event;
 		while (window.pollEvent(event))
 		{
@@ -138,7 +141,7 @@ int main()
 	}
 	
 	
-	
+	cout << chrono(aire_completee(aire,airetotale[nbzone],condition95,condition80),temps_debut) << endl;
 	cout << aire << endl;
 	cout << airetotale[0];
 	
