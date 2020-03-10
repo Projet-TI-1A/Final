@@ -15,7 +15,7 @@ if (fin == 0)
 temps_fin = clock();
 temps_operation = temps_fin-temps_debut;
 }
-cout::temps_operation::endl;
+cout<< temps_operation << endl;
 
 return temps_operation;
 }
@@ -29,7 +29,7 @@ test=chrono(fin,temps_debut);
 
 if (test =! 0)
 {
-/*affichage du texte : "Le temps total de l'opération est :" */
+cout << "Le temps total de l'opération est :" << test << endl;
 }
 return 0;
 }
