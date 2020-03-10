@@ -26,25 +26,23 @@ int zone(int k,int x,int y,int a,int b,int r,int R, int e)
 
 /******************************************************************/
 /*ajoutes un 1 dans la case (x,y) et alentours du tableau de la taille de la kè zone */
-int remplissage(int k,int x,int y,int xa,int r,int R, int e,int &aire, int **resul)
+int remplissage(int k,int x,int y,int xa,int ya,int r,int R, int e,int &aire, int **resul)
 {
 int i=0,j=0;
 int xp=x-(xa+r-e*(k+1)); //initialisation de x par rapport au tableau
-if (resul[y][xp]!=1)
+if (zone(k, x-R/2, y, xa, ya, r, R, e) && zone(k, x+(R/2)+1, y, xa, ya, r, R, e))
 	{
-	for (j=y-R+1;j<y+R-1;j++)
-		{ for(i=xp-R+1;i<xp+R-1;i++)
+	for(i=xp-R/2+1;i<xp+(R/2)+1;i++)
+		{ for (j=y-R/2;j<y+(R/2);j++)
 			{
-				resul[j][i]=1;
-					
+			if (resul[i][j]!=1)
+				{aire++;
+				resul[i][j]=1;}	
 			}
 		}
-	aire+=R*R;
-	resul[y][xp]=1;
 	}
 return 0;
 }
-
 
 /*******************************************************************/
 /*verifie que la zone est coloriée à 95% ou 80% pour fair apparaitre les pixel isolés en coloré*/
