@@ -60,6 +60,20 @@ void Dessine_point(point p, RenderWindow& window, int cote)/*Dessine un point de
 }
 
 /*******************************************************************************/
+/**dessine les pixels restants en verts pour mieux les reperer**/
+
+void Dessine_restant(point p, RenderWindow& window, int cote)
+{
+	int x, y;
+	p.get(x,y);
+	RectangleShape carre(Vector2f(cote, cote));
+	carre.setFillColor(Color(0,0,255));
+	carre.setPosition(x-int(R/2),y-int(R/2));
+	window.draw(carre);
+}
+
+
+/*******************************************************************************/
 void Dessine_plus_points(tabpoint tab,tabpoint erreur, RenderWindow& window,int cote)
 {
 	point p1;
