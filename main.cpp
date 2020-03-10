@@ -89,7 +89,7 @@ int main()
 				if (zone(k, x, y, xcentre, ycentre, r, R, e))
 					{
 					tab_point.append(p1);
-					remplissage(k,x, y, xcentre, r, R, e, aire, tab_pixel);
+					remplissage(k,x, y, xcentre,ycentre, r, R, e, aire, tab_pixel);
 					}
 				else
 					{
