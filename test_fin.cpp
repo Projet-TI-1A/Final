@@ -2,7 +2,7 @@
 #include <ctime>
 using namespace std;
  
-int chrono (bool,int)
+int chrono (bool,int);
 
 int chrono(bool fin,int temps_debut)
 {
