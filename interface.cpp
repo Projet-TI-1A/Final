@@ -2,7 +2,7 @@
 #include <iostream>
 #include "toucher.h"
 #include "interface.h"
-#include "parametre.h"
+
 
 using namespace std;
 using namespace sf;
@@ -36,11 +36,11 @@ void Position_ligne(int x, int y,RenderWindow& window)/*Permet de mettre la lign
 
 /********************************************************************************/
 
-void Dessine_point(point p, RenderWindow& window, int cote)/*Dessine un point de taille Rpx à la position (x,y)*/
+void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de taille Rpx à la position (x,y)*/
 {
 	int x, y;
 	p.get(x,y);
-	RectangleShape carre(Vector2f(cote, cote));
+	RectangleShape carre(Vector2f(R, R));
 	carre.setFillColor(Color(200,150,246));
 	carre.setPosition(x-int(R/2),y-int(R/2));
 	window.draw(carre);
@@ -48,11 +48,11 @@ void Dessine_point(point p, RenderWindow& window, int cote)/*Dessine un point de
 }
 
 /********************************************************************************/
-	void Dessine_erreur(point p, RenderWindow& window, int cote)/*Dessine un point de taille Rpx à la position (x,y)*/
+	void Dessine_erreur(point p, RenderWindow& window, int R)/*Dessine un point de taille Rpx à la position (x,y)*/
 {
 	int x,y;
 	p.get(x,y);
-	RectangleShape carre(Vector2f(cote, cote));
+	RectangleShape carre(Vector2f(R, R));
 	carre.setFillColor(Color(255,0,0));
 	carre.setPosition(x-int(R/2),y-int(R/2));
 	window.draw(carre);
@@ -62,16 +62,25 @@ void Dessine_point(point p, RenderWindow& window, int cote)/*Dessine un point de
 /*******************************************************************************/
 /**dessine les pixels restants en verts pour mieux les reperer**/
 
-void Dessine_restant(point p, RenderWindow& window, int cote)
+void Dessine_restant(int k,int l,int e, int r,int R, int xcentre, int **tab_pixel,RenderWindow& window)
 {
 	int x, y;
-	p.get(x,y);
-	RectangleShape carre(Vector2f(cote, cote));
-	carre.setFillColor(Color(0,0,255));
-	carre.setPosition(x-int(R/2),y-int(R/2));
-	window.draw(carre);
+	for (int i=0;i<e;i++)
+		{
+		for (int j=0;j<l;j++)
+			{
+			if (tab_pixel[i][j]==0)
+				{
+				x=(xcentre+r-e*(k+1))+i;
+				y=j;
+				RectangleShape carre(Vector2f(R, R));
+				carre.setFillColor(Color(0,0,255));
+				carre.setPosition(x-int(R/2),y-int(R/2));
+				window.draw(carre);
+				}
+			}
+		}
 }
-
 
 /*******************************************************************************/
 void Dessine_plus_points(tabpoint tab,tabpoint erreur, RenderWindow& window,int cote)
@@ -90,12 +99,3 @@ void Dessine_plus_points(tabpoint tab,tabpoint erreur, RenderWindow& window,int 
 		Dessine_erreur(p1, window, cote);
 	}
 }
-
-
-
-
-
-
-
-
-
