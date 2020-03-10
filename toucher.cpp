@@ -30,7 +30,7 @@ void Ajoute_point(vector<point> tab_point, int* taille, RenderWindow& window)
 
 /*********************************************************************************/
 
-void point::set(int& x, int& y)
+void point::set(int x, int y)
 {
 	this->x=x;
 	this->y=y;
