@@ -13,7 +13,7 @@ private :
 public :
 	point();
 	point(int, int);
-	void set(int&, int& );
+	void set(int, int );
 	void get(int&, int& );
 
 };
