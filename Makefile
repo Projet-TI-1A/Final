@@ -5,10 +5,10 @@ EXEC=Test_V1
 
 all: $(EXEC)
 
-Test_V1: main.o interface.o toucher.o zone.o air.o
+Test_V1: main.o interface.o toucher.o zone.o air.o test_fin.o
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
-main.o: interface.h toucher.h zone.h parametre.h
+main.o: interface.h toucher.h zone.h parametre.h test_fin.h
 %.o: %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
@@ -25,5 +25,9 @@ zone.o: toucher.h zone.h parametre.h
 	$(CXX) -o $@ -c $< $(CFLAGS)
 
 air.o: air.h
+%.o : %.c
+	$(CXX) -o $@ -c $< $(CFLAGS)
+
+test_fin.o: test_fin.h
 %.o : %.c
 	$(CXX) -o $@ -c $< $(CFLAGS)
