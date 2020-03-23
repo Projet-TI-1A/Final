@@ -102,10 +102,11 @@ int main()
 				{
 					case 2: //95%
 					k+=1;
-					l1.set(xcentre+r-(k+1)*e, ligneY);
-					l2.set(xcentre+r-(k+1)*e+e, ligneY);
+					//l1.set(xcentre+r-(k+1)*e, ligneY);
+					//l2.set(xcentre+r-(k+1)*e+e, ligneY);
 					//réinitialisation des tableaux
 					aire=0;
+					ligneX= xcentre +r-(k+1)*e;
 					tab_point.reset();
 					tab_erreur.reset();
 					for (int i = 0; i < e; i++)
@@ -129,6 +130,7 @@ int main()
 		Grand_cercle(window);
 		
 		Position_ligne(ligneX, ligneY,window);
+		Position_ligne(ligneX+e, ligneY,window);
 		
 		Dessine_plus_points(tab_point, tab_erreur, window, R);
 		window.display();
