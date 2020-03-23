@@ -26,31 +26,49 @@ int zone(int k,int x,int y,int a,int b,int r,int R, int e)
 
 /******************************************************************/
 /*ajoutes un 1 dans la case (x,y) et alentours du tableau de la taille de la kè zone */
-int remplissage(int k,int x,int y,int xa,int ya,int r,int R, int e,int &aire, int **resul)
+void remplissage(int k,int x,int y,int xa,int ya,int r,int R, int e,int &aire, int **resul)
 {
-int i=0,j=0;
+int i,j, boole=0;
 int xp=x-(xa+r-e*(k+1)); //initialisation de x par rapport au tableau
-if (zone(k, x-R/2, y, xa, ya, r, R, e) && zone(k, x+(R/2)+1, y, xa, ya, r, R, e))
-	{
-	for(i=xp-R/2+1;i<xp+(R/2)+1;i++)
-		{ for (j=y-R/2;j<y+(R/2);j++)
+i=xp-(R/2); j=y-(R/2);
+while (i<xp+(R/2)+1)
+		{ 
+		while ((j<y+(R/2)+1) && (boole!=2))
 			{
-			if (resul[i][j]!=1)
-				{aire++;
-				resul[i][j]=1;}	
+			if (zone(k,i+xa+r-e*(k+1),j,xa,ya,r,R,e))
+				{	
+					boole=1;
+					if (resul[i][j]!=1)
+					{
+						aire++;
+						resul[i][j]=1;
+					}	
+				}
+			if ((zone(k,i+xa+r-e*(k+1),j,xa,ya,r,R,e)==0) && (boole==1))
+				{
+					boole=2;
+				}
+			j++;
+			
 			}
+		i++;
+		j=y-(R/2);
 		}
-	}
-return 0;
+
 }
 
 /*******************************************************************/
 /*verifie que la zone est coloriée à 95% ou 80% pour fair apparaitre les pixel isolés en coloré*/
 
+
+
+
+
+
 int aire_completee(int aire,int airetotale, int condition80, int condition95)
 
 {
-	int pourcentage=(aire/airetotale)*100;
+	float pourcentage=((float)(aire)/(float)(airetotale))*100;
 	
 	if (pourcentage>condition95) {return 2;}
 	else if (pourcentage>condition80) {return 1;}

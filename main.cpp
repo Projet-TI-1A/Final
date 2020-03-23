@@ -14,23 +14,24 @@ using namespace sf;
 
 int main()
 {
-	int x, y ,k=0, Dessin = false;
+	int x, y,E,k=0, Dessin = false;
 	tabpoint tab_point;
 	tabpoint tab_erreur;
 	const int e=2*int(r/nbzone);
 	int ligneX= xcentre +r-(k+1)*e, ligneY=20;
 	int airetotale[nbzone];
 	int aire=0;
-	int **tab_pixel = new int* [L];
-        for (int i = 0; i < L; i++)
-        {tab_pixel[i] = new int[e];}
+	E = e+1;
+	int **tab_pixel = new int* [E];
+        for (int i = 0; i < E; i++)
+        {tab_pixel[i] = new int[L];}
 	
 	for (int i = 0; i < nbzone; i++)
         {airetotale[i] = calculaire(i,e,l,xcentre, ycentre, r, R);} 
         
 	
 	
-	RenderWindow window(VideoMode(480,320), "SFML works!",Style::Fullscreen);
+	RenderWindow window(VideoMode(480,320), "SFML works!"/*,Style::Fullscreen*/);
 	window.clear();
 	sf::Texture texture;
 	if (!texture.loadFromFile("background_im22.jpg", sf::IntRect(0,0,480,320)))
@@ -85,18 +86,18 @@ int main()
 			if (Dessin)
 			{	
 				Position_Curseur(&x, &y, window);
-				p1.set(x,y);
+				p1.set(x,y); 
 				if (zone(k, x, y, xcentre, ycentre, r, R, e))
 					{
 					tab_point.append(p1);
-					remplissage(k,x, y, xcentre,ycentre, r, R, e, aire, tab_pixel);
+					remplissage(k,x, y, xcentre,ycentre, r, R, e, aire, tab_pixel); 
 					}
 				else
 					{
 					tab_erreur.append(p1);
 					}
 				
-			
+				
 				switch ( aire_completee(aire, airetotale[k], condition80, condition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
 				{
 					case 2: //95%
@@ -107,16 +108,14 @@ int main()
 					aire=0;
 					tab_point.reset();
 					tab_erreur.reset();
-					for (int i = 0; i < L; i++)
-        					for(int j = 0; j < e; j++)
-							{tab_pixel[i][e]=0;}
+					for (int i = 0; i < e; i++)
+        					for(int j = 0; j < L; j++)
+							{tab_pixel[i][j]=0;}
 					break;
 					case 1 : //80%
 					//mettre les carrés verts?
 					break;
-					default:
-					//rien faire
-					break;
+					
 				}
 			
 			}

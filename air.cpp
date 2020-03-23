@@ -5,7 +5,7 @@
 #include "toucher.h"
 #include "zone.h"
 #include <vector>
-/*#define diametre 360*/
+/*#define diametre 350*/
 #define nbzone 5
 
 using namespace std;
@@ -31,12 +31,12 @@ int calculaire(int k,int e,int largeur,int a,int b,int r, int R)
 		while(!zone(k,i,j,a,b,r,R,e))
 		{	
 			j+=1;
-			aire=aire-1; compteur1+=1;
+			aire=aire-1; 
 		}  
 		while (!zone(k,i,l,a,b,r,R,e))
 		{
 			l-=1;
-			aire=aire-1; compteur2+=1;
+			aire=aire-1; 
 		}
 		i+=1;
 	}
