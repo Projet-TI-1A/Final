@@ -29,7 +29,7 @@ test=chrono(fin,temps_debut);
 
 if (test =! 0)
 {
-cout << "Le temps total de l'opération est :" << test << endl;
+cout << "Le temps total de l'opération est :" << test << endl;*/
 }
 return 0;
 }
