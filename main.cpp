@@ -14,7 +14,7 @@ using namespace sf;
 
 int main()
 {
-	int x, y,E,k=1, Dessin = false;
+	int x, y,E,k=0, Dessin = false;
 	tabpoint tab_point;
 	tabpoint tab_erreur;
 	const int e=2*int(r/nbzone);
