@@ -2,7 +2,7 @@
 #include <iostream>
 #include "toucher.h"
 #include "interface.h"
-#include "math.h"
+
 
 using namespace std;
 using namespace sf;
@@ -41,7 +41,7 @@ void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de ta
 	int x, y;
 	p.get(x,y);
 	RectangleShape carre(Vector2f(R, R));
-	carre.setFillColor(Color(255,150,0));
+	carre.setFillColor(Color(200,150,246));
 	carre.setPosition(x-int(R/2),y-int(R/2));
 	window.draw(carre);
 
@@ -62,24 +62,14 @@ void Dessine_point(point p, RenderWindow& window, int R)/*Dessine un point de ta
 /*******************************************************************************/
 /**dessine les pixels restants en verts pour mieux les reperer**/
 
-void Dessine_restant(int k,int l,int e, int r,int R, int xcentre, int **tab_pixel,RenderWindow& window)
+void Dessine_restant(int k,int i, int y, int e, int r,int R, int xcentre, RenderWindow& window)
 {
-	int x, y;
-	for (int i=0;i<e;i++)
-		{
-		for (int j=0;j<l;j++)
-			{
-			if (tab_pixel[i][j]==0)
-				{
-				x=(xcentre+r-e*(k+1))+i;
-				y=j;
-				RectangleShape carre(Vector2f(R, R));
-				carre.setFillColor(Color(0,0,255));
-				carre.setPosition(x-int(R/2),y-int(R/2));
-				window.draw(carre);
-				}
-			}
-		}
+	int x=(xcentre+r-e*(k+1))+i;
+	RectangleShape carre(Vector2f(3, 3));
+	carre.setFillColor(Color(0,255,0));
+	carre.setPosition(x-int(R/2),y-int(R/2));
+	window.draw(carre);
+			
 }
 
 /*******************************************************************************/
@@ -98,35 +88,4 @@ void Dessine_plus_points(tabpoint tab,tabpoint erreur, RenderWindow& window,int 
 		erreur.get(p1,i);
 		Dessine_erreur(p1, window, cote);
 	}
-}
-
-
-/*******************************************************************************/
-/**dessine les zones déjà coloriées et finies**/
-void ZoneFinie(RenderWindow& window, int k, int e, int xcentre, int ycentre, int r)
-{
-
-    
-    int i; float y;
-    int nbpoint=k*e*2;
-    int xdepart=xcentre+r-(k)*e;
-    int ite=nbpoint/2;
-    int xbout=xcentre+r;
-
-
-    ConvexShape polygon;
-	polygon.setPointCount(nbpoint);
-	for (i=0;i<ite;i++)
-	{ y= sqrt(r*r - (i+xdepart-xcentre)*(i+xdepart-xcentre))+ycentre;
-	polygon.setPoint(i, sf::Vector2f(i+xdepart, y));
-	y= -sqrt(r*r - (xbout-i-xcentre)*(xbout-i-xcentre))+ycentre;
-	polygon.setPoint(i+ite, sf::Vector2f(xbout-i, y));
-	} 
-	y= -sqrt(r*r - (xbout-ite-1-xcentre)*(xbout-ite-1-xcentre))+ycentre;
-	polygon.setPoint(nbpoint-1, sf::Vector2f(xbout-ite-1, y));
-	// setPoint ( indice du point, sf::Vector2f(x,y))
-	polygon.setFillColor(Color(244,100,27));
-	
-	
-    window.draw(polygon);
 }

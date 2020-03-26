@@ -63,8 +63,6 @@ while (i<xp+(R/2)+1)
 
 
 
-
-
 int aire_completee(int aire,int airetotale, int condition80, int condition95)
 
 {

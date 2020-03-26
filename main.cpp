@@ -40,7 +40,7 @@ int main()
 	sprite.setTexture(texture);
 	sprite.setScale(sf::Vector2f(1.5f,1.5f));
 	
-	//ligne l1(ligneX, ligneY), l2(ligneX+e, ligneY);
+	ligne l1(ligneX, ligneY), l2(ligneX+e, ligneY);
 	
 	
 
@@ -98,7 +98,7 @@ int main()
 					}
 				
 				
-				switch ( aire_completee(aire, airetotale[k], condition80, condition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
+				switch ( aire_completee(aire, airetotale[k], condition95, condition99) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
 				{
 					case 2: //95%
 					k+=1;
@@ -113,8 +113,8 @@ int main()
         					for(int j = 0; j < L; j++)
 							{tab_pixel[i][j]=0;}
 					break;
-					case 1 : //80%
-					//mettre les carrés verts?
+					case 1 : 
+					//80%
 					break;
 					
 				}
@@ -128,10 +128,21 @@ int main()
 		*/
 		window.clear();
 		Grand_cercle(window);
-		ZoneFinie(window,k, e,  xcentre, ycentre,  r);
-		Dessine_plus_points(tab_point, tab_erreur, window, R);
+		
 		Position_ligne(ligneX, ligneY,window);
 		Position_ligne(ligneX+e, ligneY,window);
+		
+		Dessine_plus_points(tab_point, tab_erreur, window, R);
+		
+		
+		if (aire_completee(aire, airetotale[k], condition95, condition99)==1 ){
+			for (int i=0;i<e;i++){
+				for (int y=0;y<l;y++){
+					if (tab_pixel[i][y]==0  &&  zone(k, i+(xcentre+r-e*(k+1)), y, xcentre, ycentre, r, R, e))
+						{Dessine_restant(k,i,y, e, r, R, xcentre, window);}
+					}
+				}
+			}
 		window.display();
 		/*test_fin(aire_completee(aire,airetotale[nbzone],condition95,condition80),temps_debut);*/
 	}
