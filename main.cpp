@@ -17,6 +17,7 @@ int main()
 	int x, y,E,k=0, Dessin = false;
 	tabpoint tab_point;
 	tabpoint tab_erreur;
+	int erreurs=0, points=0;
 	const int e=2*int(r/nbzone);
 	int ligneX= xcentre +r-(k+1)*e, ligneY=20;
 	int airetotale[nbzone];
@@ -90,11 +91,13 @@ int main()
 				if (zone(k, x, y, xcentre, ycentre, r, R, e))
 					{
 					tab_point.append(p1);
+					points++;
 					remplissage(k,x, y, xcentre,ycentre, r, R, e, aire, tab_pixel); 
 					}
 				else
 					{
 					tab_erreur.append(p1);
+					erreurs++;
 					}
 				
 				
@@ -153,11 +156,7 @@ int main()
 		window.display();
 		/*test_fin(aire_completee(aire,airetotale[nbzone],condition95,condition80),temps_debut);*/
 	}
-	
-	
-	
-	cout << aire << endl;
-	cout << airetotale[0];
+
 	
 
 	return 0;
