@@ -14,7 +14,7 @@ using namespace sf;
 
 int main()
 {
-	int x, y,E,k=0, Dessin = false;
+	int x, y,E,k=1, Dessin = false;
 	tabpoint tab_point;
 	tabpoint tab_erreur;
 	const int e=2*int(r/nbzone);
@@ -40,7 +40,7 @@ int main()
 	sprite.setTexture(texture);
 	sprite.setScale(sf::Vector2f(1.5f,1.5f));
 	
-	ligne l1(ligneX, ligneY), l2(ligneX+e, ligneY);
+	//ligne l1(ligneX, ligneY), l2(ligneX+e, ligneY);
 	
 	
 
@@ -128,11 +128,10 @@ int main()
 		*/
 		window.clear();
 		Grand_cercle(window);
-		
+		ZoneFinie(window,k, e,  xcentre, ycentre,  r);
+		Dessine_plus_points(tab_point, tab_erreur, window, R);
 		Position_ligne(ligneX, ligneY,window);
 		Position_ligne(ligneX+e, ligneY,window);
-		
-		Dessine_plus_points(tab_point, tab_erreur, window, R);
 		window.display();
 		/*test_fin(aire_completee(aire,airetotale[nbzone],condition95,condition80),temps_debut);*/
 	}
