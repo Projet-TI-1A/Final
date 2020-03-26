@@ -133,7 +133,14 @@ int main()
 		Position_ligne(ligneX+e, ligneY,window);
 		
 		Dessine_plus_points(tab_point, tab_erreur, window, R);
-		
+		if (aire_completee(aire, airetotale[k], condition80, condition95)==1 ){
+			for (int i=0;i<e;i++){
+				for (int y=0;y<l;y++){
+					if (tab_pixel[i][y]==0  &&  zone(k, i+(xcentre+r-e*(k+1)), y, xcentre, ycentre, r, R, e))
+						{Dessine_restant(k,i,y, e, r, R, xcentre, window);}
+					}
+				}
+			}
 		
 		/*if (aire_completee(aire, airetotale[k], condition80, condition95)==1 ){
 			for (int i=0;i<e;i++){

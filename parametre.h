@@ -10,7 +10,7 @@
 #define xcentre 250 //position du centre du cercle
 #define ycentre 170
 #define condition95 95 //pourcentage minimum a completer pour passer a la zone suivante
-#define condition80 10 //pourcentage minimum a completer avant de colorer pixels isolé
+#define condition80 90 //pourcentage minimum a completer avant de colorer pixels isolé
 
 
 #endif
