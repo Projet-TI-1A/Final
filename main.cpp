@@ -5,6 +5,7 @@
 #include "zone.h"
 #include "parametre.h"
 #include "air.h"
+#include "resultat.h"
 #include <vector>
 #include "ligne.h"
 
