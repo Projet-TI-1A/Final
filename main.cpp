@@ -27,7 +27,8 @@ int main()
         {tab_pixel[i] = new int[L];}
 	
 	for (int i = 0; i < nbzone; i++)
-        {airetotale[i] = calculaire(i,e,l,xcentre, ycentre, r, R);} 
+      	{airetotale[i] = calculaire(i,e,l,xcentre, ycentre, r, R);} 
+	
         
 	
 	
@@ -87,15 +88,18 @@ int main()
 			{	
 				Position_Curseur(&x, &y, window);
 				p1.set(x,y); 
-				if (zone(k, x, y, xcentre, ycentre, r, R, e))
+				if (zone(k, x, y, xcentre, ycentre, r, R, e)==1)
 					{
 					tab_point.append(p1);
 					remplissage(k,x, y, xcentre,ycentre, r, R, e, aire, tab_pixel); 
 					}
-				else
+				 
+			
+			 if (zone(k, x, y, xcentre, ycentre, r, R, e)==2)
 					{
-					tab_erreur.append(p1);
+						tab_erreur.append(p1);
 					}
+				
 				
 				
 				switch ( aire_completee(aire, airetotale[k], condition80, condition95) )   //en fonction de l'aire on fait telle action mais on teste pas les autres
@@ -136,7 +140,7 @@ int main()
 		if (aire_completee(aire, airetotale[k], condition80, condition95)==1 ){
 			for (int i=0;i<e;i++){
 				for (int y=0;y<l;y++){
-					if (tab_pixel[i][y]==0  &&  zone(k, i+(xcentre+r-e*(k+1)), y, xcentre, ycentre, r, R, e))
+					if (tab_pixel[i][y]==0  &&  zone(k, i+(xcentre+r-e*(k+1)), y, xcentre, ycentre, r, R, e)==1)
 						{Dessine_restant(k,i,y, e, r, R, xcentre, window);}
 					}
 				}
@@ -156,8 +160,7 @@ int main()
 	
 	
 	
-	cout << aire << endl;
-	cout << airetotale[0];
+	
 	
 
 	return 0;

@@ -12,15 +12,18 @@ int zone(int k,int x,int y,int a,int b,int r,int R, int e)
 	int l, error=0;
 	l=(a-x)*(a-x)+(b-y)*(b-y);
 	
-	if ( (x>=a+r-(k+1)*e) && (x<=a+r-k*e) && (l<=r*r) )
+	if ( (x>=a+r-(k+1)*e+R/2) && (x<=a+r-k*e-R/2) && (l<=r*r-R/2) )
 	/*if (  (x>=180) && (x<310) && (l<=r*r) )*/
 		{
 			error=1;
 		}
-	else 
-		{
-			error=0;
-		}
+	 
+	 
+	if ( (x<=a+r-(k+1)*e-R/2) || (x>=a+r-k*e+R/2) || (l>r*r+R*R*R) )
+			{
+				error=2;
+			}
+	
 	return error;
 }
 
@@ -35,7 +38,7 @@ while (i<xp+(R/2)+1)
 		{ 
 		while ((j<y+(R/2)+1) && (boole!=2))
 			{
-			if (zone(k,i+xa+r-e*(k+1),j,xa,ya,r,R,e))
+			if (zone(k,i+xa+r-e*(k+1),j,xa,ya,r,R,e)==1)
 				{	
 					boole=1;
 					if (resul[i][j]!=1)
@@ -44,7 +47,7 @@ while (i<xp+(R/2)+1)
 						resul[i][j]=1;
 					}	
 				}
-			if ((zone(k,i+xa+r-e*(k+1),j,xa,ya,r,R,e)==0) && (boole==1))
+			if ((zone(k,i+xa+r-e*(k+1),j,xa,ya,r,R,e)!=1) && (boole==1))
 				{
 					boole=2;
 				}
@@ -76,3 +79,18 @@ int aire_completee(int aire,int airetotale, int condition80, int condition95)
 }
 
 
+
+/*
+
+int main()
+{
+	int R=15,nbzone=5,r=150,L=480,l=320,xcentre=250,ycentre=170,condition95=95,condition80=90;
+	int e=2*int(r/nbzone);
+
+
+
+	cout << zone(0,100,170,xcentre,ycentre,r,R,e) << endl;
+	return 0;
+}
+
+*/
