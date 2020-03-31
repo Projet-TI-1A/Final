@@ -11,8 +11,6 @@ int chrono(int fin,int temps_debut)
 //temps en secondes
 time_t temps_fin; 
 time_t temps_operation;  
- 
- 
 
 if (fin == 2)
 
