@@ -27,6 +27,17 @@ int zone(int k,int x,int y,int a,int b,int r,int R, int e)
 	return error;
 }
 
+
+/*int zoneplus(int k,int i,int y,int a,int b,int r,int R,int e)
+{
+	int error=0,H;
+	H=(a-(i+(a+r-e*(k+1))))*(a-(i+(a+r-e*(k+1))))+(b-y)*(b-y);
+	if (i+(a+r-e*(k+1)>=a+r-(k+1)*e) && (i+(a+r-e*(k+1))<=a+r-k*e-R/2) && (H<=r*r-R/2))
+	{
+		error=1;
+	} 
+	return error;
+}*/
 /******************************************************************/
 /*ajoutes un 1 dans la case (x,y) et alentours du tableau de la taille de la kè zone */
 void remplissage(int k,int x,int y,int xa,int ya,int r,int R, int e,int &aire, int **resul)
@@ -84,12 +95,12 @@ int aire_completee(int aire,int airetotale, int condition80, int condition95)
 
 int main()
 {
-	int R=15,nbzone=5,r=150,L=480,l=320,xcentre=250,ycentre=170,condition95=95,condition80=90;
+	int R=15,nbzone=5,r=150,L=480,l=320,xcentre=250,b=170,condition95=95,condition80=90;
 	int e=2*int(r/nbzone);
 
 
 
-	cout << zone(0,100,170,xcentre,ycentre,r,R,e) << endl;
+	cout << zone(0,100,170,a,b,r,R,e) << endl;
 	return 0;
 }
 
